@@ -1,0 +1,36 @@
+# Configuration Netlify pour Vision 2026
+
+[build]
+  # Commande de build
+  command = "npm run build"
+  
+  # Dossier à déployer
+  publish = "dist"
+  
+  # Variables d'environnement pour le build
+  environment = { NODE_VERSION = "18" }
+
+# Redirections pour le routing côté client
+[[redirects]]
+  from = "/donation-success"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/donation-cancel"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
