@@ -1,12 +1,14 @@
 import {Mail } from 'lucide-react';
+import augustineImg from '@/assets/images/maman.jpg';
+import fideleImg from '@/assets/images/papa.jpg';
 
 export default function SpeakersSection() {
   const speakers = [
     {
       name: 'Dr HOUEKIN HANGBE AHONON Augustine',
       title: 'Leader Spirituel & Entrepreneuse',
-      image: 'https://scontent.flbv5-1.fna.fbcdn.net/v/t39.30808-6/481078892_624572333760699_2774798699160097226_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGjWMu5qm-MEmkocX9iTh-UN4Xuu5cd8ds3he67lx3x27n6HjJ6Rt-mJea3tKmdJl3KKHbloDpy3IznjKy6UKj3&_nc_ohc=VvzqmKhnMnEQ7kNvwF6aYko&_nc_oc=AdnzVsj9Q6XH9DodTx7IwMrR4RaOEwmAmpvJzozNUne_oQeqh7krfxc09_aKQ69buZuIxv1tz7G4r0LooznQ84un&_nc_zt=23&_nc_ht=scontent.flbv5-1.fna&_nc_gid=4Ya3Hdb_NfVdPC4nO6U1YA&oh=00_Affjy9Oy4XG5RpqZ8ZfqK3tCs2qqhA7LsVxavy0ljY9jzw&oe=68FDD5A2',
-      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN HANGBE AHONON Augustine est un femme de feu visionnaire qui inspire des jeunes de par son intimité avec le Saint-Esprit et à travers ses enseignements sur l\'excellence et la réussite selon les principes bibliques.',
+      image: augustineImg,
+      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN HANGBE AHONON Augustine est une femme de feu visionnaire qui inspire des jeunes de par son intimité avec le Saint-Esprit et à travers ses enseignements sur l\'excellence et la réussite selon les principes bibliques.',
       topics: ['Leadership chrétien', 'Excellence spirituelle', 'Entrepreneuriat de foi'],
       socials: {
         email: 'jmkoffi@citeexcellence.org',
@@ -15,8 +17,8 @@ export default function SpeakersSection() {
     {
       name: 'Dr HOUEKIN Fidèle',
       title: 'Pasteur',
-      image: 'https://scontent.flbv5-1.fna.fbcdn.net/v/t39.30808-6/482058973_624996117051654_3626401151212610259_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGlpUweAVdzggpGxlyNmlEKPT6IhA3l0xY9PoiEDeXTFhUex-4SKO1waoGGKrznLraQDZ_cawRbj5awu7V-E69K&_nc_ohc=dLvbR6lixs8Q7kNvwErNcgh&_nc_oc=Adl3_zu_Tj8iR8qHWI8YqW0HManFEeDg56O4WZvOPZ876MWg4l_B5m066YBjyIzfqZJLDvVw6odmcXehiQ1bpo1M&_nc_zt=23&_nc_ht=scontent.flbv5-1.fna&_nc_gid=Q0PERixwCH0wP4Jx5pEhgg&oh=00_AfeB19SF4N0VymXQKuUpAvSiA65q-J_8-vN2ic_-iqBcqA&oe=68FDF44D',
-      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN Fidèle est un homme d\'impact animé d’une foi spirituelle contagiese.À travers son parcours et ses enseignements, il aide chacun à développer une vision claire pour l\'avenir et inspire les jeunes à vivre l’excellence selon Dieu.',
+      image: fideleImg,
+      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN Fidèle est un homme d\'impact animé d’une foi spirituelle contagieuse. À travers son parcours et ses enseignements, il aide chacun à développer une vision claire pour l\'avenir et inspire les jeunes à vivre l’excellence selon Dieu.',
       topics: ['Vision & Planification', 'Excellence spirituelle', 'Mindset de réussite'],
       socials: {
         email: 'sarah@citeexcellence.org',
@@ -43,14 +45,15 @@ export default function SpeakersSection() {
               key={idx}
               className="group bg-gradient-to-br from-[#b5882a]/10 to-transparent border border-[#b5882a]/30 rounded-2xl overflow-hidden hover:border-[#ffcf00]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#ffcf00]/20"
             >
-               <div className="relative h-80 overflow-hidden">
+               <div className="relative h-64 sm:h-80 overflow-hidden">
                 <img
-                  src={speaker.image}
-                  alt={speaker.name}
-                  className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
-                  style={{ objectPosition: 'center 10%' }}
+                src={speaker.image}
+                alt={`Photo de ${speaker.name}`}
+                loading="lazy"
+                className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+                style={{ objectPosition: 'center 10%' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                 
                 {/* Name & Title Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
