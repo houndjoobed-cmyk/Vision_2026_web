@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { CheckCircle2, Send, AlertCircle } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { supabase } from '../lib/supabase';
 import type { Registration } from '../lib/supabase';
 
@@ -67,16 +67,31 @@ export default function RegistrationForm() {
       }
 
       // 3. Envoyer l'email avec le billet (via Edge Function)
-      const { error: emailError } = await supabase.functions.invoke('send-ticket-email', {
-        body: { registrationId: newRegistration.id }
-      });
+      console.log('Registration successful, data:', newRegistration);
+      console.log('Calling Edge Function with registration ID:', newRegistration.id);
+      
+      try {
+        const { data: emailData, error: emailError } = await supabase.functions.invoke('send-ticket-email', {
+          body: { registrationId: newRegistration.id },
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        console.log('Raw response from Edge Function:', { data: emailData, error: emailError });
 
-      if (emailError) {
-        console.error('Email error:', emailError);
-        // L'inscription est créée, mais l'email n'a pas été envoyé
-        toast.warning('Inscription réussie ! L\'email sera envoyé sous peu.');
-      } else {
-        toast.success('Inscription réussie ! Vérifiez votre email pour votre billet.');
+        if (emailError) {
+          console.error('Email error:', emailError);
+          console.error('Email error details:', emailError.message, emailError.stack);
+          // L'inscription est créée, mais l'email n'a pas été envoyé
+          toast.warning('Inscription réussie ! L\'email sera envoyé sous peu.');
+        } else {
+          console.log('Edge Function response:', emailData);
+          toast.success('Inscription réussie ! Vérifiez votre email pour votre billet.');
+        }
+      } catch (functionError) {
+        console.error('Edge Function invocation error:', functionError);
+        toast.error('Erreur lors de l\'envoi du billet. Notre équipe a été notifiée.');
       }
 
       // Show success state
