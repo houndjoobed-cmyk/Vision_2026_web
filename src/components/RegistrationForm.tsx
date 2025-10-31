@@ -72,10 +72,7 @@ export default function RegistrationForm() {
       
       try {
         const { data: emailData, error: emailError } = await supabase.functions.invoke('send-ticket-email', {
-          body: { registrationId: newRegistration.id },
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          body: JSON.stringify({ registrationId: newRegistration.id })
         });
         
         console.log('Raw response from Edge Function:', { data: emailData, error: emailError });
