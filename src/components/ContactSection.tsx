@@ -107,8 +107,8 @@ export default function ContactSection() {
           <div className="bg-black/50 border border-[#b5882a]/30 rounded-xl p-6">
             <h4 className="text-white mb-3">🕐 Quand aura lieu le séminaire ?</h4>
             <p className="text-sm text-gray-400">
-              Le séminaire se tiendra sur 3 jours consécutifs. Les dates exactes seront annoncées bientôt. 
-              Restez à l'écoute !
+              Le séminaire se tiendra sur 3 jours consécutifs:les samedis 15, 22 et 29 novembre 2025. 
+              Restez à l'écoute pour les derniers détails !
             </p>
           </div>
           <div className="bg-black/50 border border-[#b5882a]/30 rounded-xl p-6">

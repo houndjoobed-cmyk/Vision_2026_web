@@ -1,7 +1,7 @@
 // Configuration FedaPay
 export const FEDAPAY_CONFIG = {
-  publicKey: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FEDAPAY_PUBLIC_KEY) || '',
-  sandboxMode: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_FEDAPAY_SANDBOX === 'true') || true,
+  publicKey: import.meta.env.VITE_FEDAPAY_PUBLIC_KEY || '',
+  sandboxMode: true, // Forcer le mode sandbox pour le développement
   currency: 'XOF',
 };
 
@@ -28,22 +28,20 @@ export interface DonationParams {
  * @returns URL de redirection vers la page de paiement FedaPay
  */
 export function createFedaPayCheckoutUrl(params: DonationParams): string {
-  const baseUrl = FEDAPAY_CONFIG.sandboxMode
-    ? 'https://sandbox-checkout.fedapay.com'
-    : 'https://checkout.fedapay.com';
+  // Toujours utiliser l'URL sandbox pour le développement
+  const baseUrl = 'https://sandbox-checkout.fedapay.com';
 
-  // Construire l'URL avec les paramètres
+    // Construire l'URL avec les paramètres
+  const origin = window.location.origin;
   const checkoutParams = new URLSearchParams({
     public_key: FEDAPAY_CONFIG.publicKey,
     amount: params.amount.toString(),
     currency: FEDAPAY_CONFIG.currency,
     description: params.description || `Don pour Vision 2026 - ${params.amount} FCFA`,
-    // URLs de callback
-    callback_url: `${window.location.origin}/donation-success`,
-    cancel_url: `${window.location.origin}/donation-cancel`,
-  });
-
-  // Ajouter les informations du donateur si disponibles
+    // URLs de callback avec le hash pour le routage côté client
+    callback_url: `${origin}/#/donation-success`,
+    cancel_url: `${origin}/#/donation-cancel`,
+  });  // Ajouter les informations du donateur si disponibles
   if (params.donorEmail) {
     checkoutParams.append('customer[email]', params.donorEmail);
   }
@@ -80,7 +78,7 @@ export function openFedaPayWidget(params: DonationParams) {
   const FedaPay = (window as any).FedaPay;
 
   FedaPay.init({
-    public_key: FEDAPAY_CONFIG.publicKey,
+    public_key: 'pk_sandbox_htQkSZ-hAcDgUz_5mWXqQVMN', // Utiliser directement la clé sandbox
     transaction: {
       amount: params.amount,
       description: params.description || `Don pour Vision 2026 - ${params.amount} FCFA`,
@@ -100,12 +98,12 @@ export function openFedaPayWidget(params: DonationParams) {
     custom_metadata: params.customMetadata,
     onComplete: (response: any) => {
       console.log('Payment completed:', response);
-      // Rediriger vers la page de succès
-      window.location.href = `/donation-success?transaction_id=${response.id}`;
+      // Rediriger vers la page de succès avec le hash
+      window.location.href = `/#/donation-success?transaction_id=${response.id}`;
     },
     onCancel: () => {
       console.log('Payment cancelled');
-      window.location.href = '/donation-cancel';
+      window.location.href = '/#/donation-cancel';
     },
   });
 

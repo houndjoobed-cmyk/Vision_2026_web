@@ -11,17 +11,17 @@ export default function SpeakersSection() {
       bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN HANGBE AHONON Augustine est une femme de feu visionnaire qui inspire des jeunes de par son intimité avec le Saint-Esprit et à travers ses enseignements sur l\'excellence et la réussite selon les principes bibliques.',
       topics: ['Leadership chrétien', 'Excellence spirituelle', 'Entrepreneuriat de foi'],
       socials: {
-        email: 'jmkoffi@citeexcellence.org',
+        email: 'augustprofid@yahoo.fr',
       },
     },
     {
       name: 'Dr HOUEKIN Fidèle',
       title: 'Pasteur',
       image: fideleImg,
-      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN Fidèle est un homme d\'impact animé d’une foi spirituelle contagieuse. À travers son parcours et ses enseignements, il aide chacun à développer une vision claire pour l\'avenir et inspire les jeunes à vivre l’excellence selon Dieu.',
+      bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN HANGBE Fidèle est un homme d\'impact animé d’une foi spirituelle contagieuse. À travers son parcours et ses enseignements, il aide chacun à développer une vision claire pour l\'avenir et inspire les jeunes à vivre l’excellence selon Dieu.',
       topics: ['Vision & Planification', 'Excellence spirituelle', 'Mindset de réussite'],
       socials: {
-        email: 'sarah@citeexcellence.org',
+        email: 'houekin1234@gmail.com',
       },
     },
   ];

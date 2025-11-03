@@ -107,7 +107,7 @@ export default function RegistrationForm() {
           city: '',
           age: '',
         });
-      }, 5000);
+      }, 60000);
 
     } catch (error: any) {
       console.error('Registration error:', error);
@@ -130,8 +130,8 @@ export default function RegistrationForm() {
               <div className="bg-black/50 rounded-lg p-6 border border-[#ffcf00]/30 mb-6">
                 <p className="text-[#b5882a] mb-2">🎫 Votre code de billet</p>
                 <p className="text-2xl text-[#ffcf00] tracking-wider mb-2">{ticketCode}</p>
-                <p className="text-xs text-white/60">Conservez ce code précieusement</p>
-              </div>
+             
+            </div>
             )}
             
             <div className="bg-black/50 rounded-lg p-6 border border-[#b5882a]/30">

@@ -16,14 +16,24 @@ export default function App() {
 
   // Détecter la page actuelle en fonction de l'URL
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path.includes('donation-success')) {
-      setCurrentPage('donation-success');
-    } else if (path.includes('donation-cancel')) {
-      setCurrentPage('donation-cancel');
-    } else {
-      setCurrentPage('home');
-    }
+    const handleRouteChange = () => {
+      const hash = window.location.hash;
+      if (hash.includes('donation-success')) {
+        setCurrentPage('donation-success');
+      } else if (hash.includes('donation-cancel')) {
+        setCurrentPage('donation-cancel');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    // Écouter les changements de hash
+    window.addEventListener('hashchange', handleRouteChange);
+    // Vérifier la route initiale
+    handleRouteChange();
+
+    // Cleanup
+    return () => window.removeEventListener('hashchange', handleRouteChange);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
