@@ -140,7 +140,7 @@ export default function RegistrationForm() {
               Merci de votre confiance !
               </p>
               <p className="text-sm text-white/70">
-                Vous recevrez votre billet/pass personnalisé avec QR code sous peu. À bientôt au séminaire !
+                Restez connecté pour des nouvelles actualités. À bientôt au séminaire !
               </p>
             </div>
           </div>
