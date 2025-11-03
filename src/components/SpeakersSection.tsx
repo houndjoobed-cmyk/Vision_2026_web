@@ -15,7 +15,7 @@ export default function SpeakersSection() {
       },
     },
     {
-      name: 'Dr HOUEKIN Fidèle',
+      name: 'Dr HOUEKIN HANGBE Fidèle',
       title: 'Pasteur',
       image: fideleImg,
       bio: 'Fondateur de la Cité d\'Excellence, le Docteur HOUEKIN HANGBE Fidèle est un homme d\'impact animé d’une foi spirituelle contagieuse. À travers son parcours et ses enseignements, il aide chacun à développer une vision claire pour l\'avenir et inspire les jeunes à vivre l’excellence selon Dieu.',

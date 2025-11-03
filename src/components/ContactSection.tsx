@@ -11,14 +11,14 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: 'Téléphone',
-      value: '+229 01 96 32 04 44',
-      link: 'tel:+2290196320444',
+      value: '+229 01 66 99 78 67',
+      link: 'tel:+2290166997867',
     },
     {
       icon: MapPin,
       title: 'Lieu',
       value: 'Cité d\'Excellence, Abomey-Calavi',
-      link: '#',
+      link: 'https://maps.app.goo.gl/4GBjQghKKaGJ4uow8',
     },
   ];
 
@@ -32,7 +32,7 @@ export default function ContactSection() {
     {
       icon: MessageCircle,
       name: 'WhatsApp',
-      url: 'https://wa.me/+2290196320444',
+      url: 'https://wa.me/+2290166997867',
       color: 'hover:bg-green-600',
     },
   ];
@@ -98,7 +98,7 @@ export default function ContactSection() {
 
           {/* Hashtag */}
           <div className="text-center mt-8">
-            <p className="text-[#ffcf00] text-lg">#Vision2026 #CitéDExcellence #jeudimpact</p>
+            <p className="text-[#ffcf00] text-lg">#Vision2026 #CitéDExcellence #jeunesdimpact</p>
           </div>
         </div>
 
