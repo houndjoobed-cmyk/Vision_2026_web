@@ -61,7 +61,7 @@ export default function RegistrationForm() {
 
       if (insertError) {
         if (insertError.code === '23505') {
-          throw new Error('Cet email est déjà inscrit. Vérifiez votre boîte de réception.');
+          throw new Error('Cet email est déjà inscrit.');
         }
         throw new Error('Erreur lors de l\'inscription. Veuillez réessayer.');
       }
@@ -81,10 +81,10 @@ export default function RegistrationForm() {
           console.error('Email error:', emailError);
           console.error('Email error details:', emailError.message, emailError.stack);
           // L'inscription est créée, mais l'email n'a pas été envoyé
-          toast.warning('Inscription réussie ! L\'email sera envoyé sous peu.');
+          toast.warning('Inscription réussie !🎉🎉🎉');
         } else {
           console.log('Edge Function response:', emailData);
-          toast.success('Inscription réussie ! Vérifiez votre email pour votre billet.');
+          toast.success('Inscription réussie !🎉🎉🎉');
         }
       } catch (functionError) {
         console.error('Edge Function invocation error:', functionError);
@@ -124,9 +124,7 @@ export default function RegistrationForm() {
           <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 border-2 border-green-500 rounded-2xl p-12 text-center">
             <CheckCircle2 className="w-20 h-20 text-green-400 mx-auto mb-6 animate-bounce" />
             <h3 className="text-3xl text-white mb-4">Inscription réussie ! 🎉</h3>
-            <p className="text-lg text-white/80 mb-6">
-              Bienvenue à Vision 2026 ! Votre billet a été envoyé à votre email.
-            </p>
+            
             
             {ticketCode && (
               <div className="bg-black/50 rounded-lg p-6 border border-[#ffcf00]/30 mb-6">
@@ -137,7 +135,10 @@ export default function RegistrationForm() {
             )}
             
             <div className="bg-black/50 rounded-lg p-6 border border-[#b5882a]/30">
-              <p className="text-[#ffcf00] mb-2">📧 Vérifiez votre boîte de réception</p>
+              <p className="text-[#ffcf00] mb-2">📧 Votre inscription a été confirmée avec succès !
+              🎉🎉🎉
+              Merci de votre confiance !
+              </p>
               <p className="text-sm text-white/70">
                 Vous recevrez votre billet/pass personnalisé avec QR code sous peu. À bientôt au séminaire !
               </p>
@@ -155,8 +156,8 @@ export default function RegistrationForm() {
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl text-[#ffcf00] mb-4">Inscription</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Réservez votre place à Vision 2026. Remplissez le formulaire ci-dessous et 
-            recevez votre billet instantanément par email !
+            Réservez votre place à Vision 2026. Remplissez le formulaire ci-dessous.
+      
           </p>
         </div>
 
@@ -212,9 +213,7 @@ export default function RegistrationForm() {
                 className="bg-black border-[#b5882a]/30 text-white placeholder:text-gray-500 focus:border-[#ffcf00] focus:ring-[#ffcf00]"
                 placeholder="jean.kouassi@example.com"
               />
-              <p className="text-xs text-gray-400 mt-2">
-                Votre billet sera envoyé à cette adresse email
-              </p>
+
             </div>
 
             {/* Phone */}
@@ -261,7 +260,7 @@ export default function RegistrationForm() {
                   type="number"
                   required
                   min="13"
-                  max="35"
+                  max="100"
                   value={formData.age}
                   onChange={handleChange}
                   className="bg-black border-[#b5882a]/30 text-white placeholder:text-gray-500 focus:border-[#ffcf00] focus:ring-[#ffcf00]"
@@ -274,8 +273,7 @@ export default function RegistrationForm() {
             <div className="bg-[#ffcf00]/10 border border-[#ffcf00]/30 rounded-lg p-4">
               <p className="text-sm text-[#ffcf00]">
                 <span className="text-[#ffcf00]">✨ Événement Gratuit</span> - Ce séminaire est entièrement 
-                gratuit pour tous les participants. Lors de l'inscription, vous recevrez un billet/pass numérique 
-                avec un code QR unique.
+                gratuit pour tous les participants. Nous vous remercions.
               </p>
             </div>
 
