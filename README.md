@@ -1,8 +1,6 @@
 
   # Vision 2026 Registration Site
 
-  This is a code bundle for Vision 2026 Registration Site. The original project is available at https://www.figma.com/design/5z1mFgT8jFEfzOWBuBbA3S/Vision-2026-Registration-Site.
-
   ## Running the code
 
   Run `npm i` to install the dependencies.
